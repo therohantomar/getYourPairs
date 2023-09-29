@@ -1,5 +1,6 @@
 import React from "react";
 import { useSelector } from "react-redux";
+import CartCard from "./CartCard";
 
 const Cart = () => {
   const Products = useSelector((store) => store.cart.Products);
@@ -16,8 +17,10 @@ const Cart = () => {
         </span>
         <button className="btn btn-error text-white">Checkout</button>
       </span>
-      <span>
-        
+      <span className="bg-gray-500">
+        {Products.map(product=>{
+          return (<CartCard key={product.id} {...product}/>)
+        })}
       </span>
     </div>
   );
