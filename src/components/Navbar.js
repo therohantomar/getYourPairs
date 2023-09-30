@@ -16,20 +16,20 @@ const Navbar = () => {
   
   return (
     <div className="w-full bg-white shadow sticky top-0 left-0 right-0 z-10  flex justify-between navbar items-center ">
-      <div className="w-max  mx-4 flex items-center">
+      <div className="w-full  mx-4 flex justify-between items-center">
         <GiHamburgerMenu onClick={()=>dispatch(toggleSidebar())} className="mx-4 text-red-500 cursor-pointer xs:block sm:block md:block lg:hidden xl:hidden 2xl:hidden  text-xl " />
         <img src={logo} alt="logo"  className="w-16 h-10"/>
       </div>
       <span className="flex w-max mx-8 gap-10">
         <ul className="xs:hidden sm:hidden md:hidden lg:flex xl:flex 2xl:flex  items-center">
           <Link to="/">
-            <li className="mx-4 avatar  text-xl text-red-500">Home</li>
+            <li className={`mx-4 avatar  text-xl ${!name?"text-gray-500":"text-red-500"} `}>Home</li>
           </Link>
           <Link to="about?name=about">
-            <li className="mx-4 avatar  text-xl text-red-500">About</li>
+            <li className={`mx-4 avatar  text-xl ${name==="about"?"text-gray-500":"text-red-500"} `}>About</li>
           </Link>
           <Link to="contact?name=contact">
-            <li className="mx-4 avatar  text-xl text-red-500">Contact</li>
+            <li className={`mx-4 avatar  text-xl ${name==="contact"?"text-gray-500":"text-red-500"} `}>Contact</li>
           </Link>
           <Link to="signin?name=signin">
             <li className="mx-4 avatar  text-xl text-red-500">

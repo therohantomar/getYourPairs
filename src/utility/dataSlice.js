@@ -14,49 +14,41 @@ const dataSlice = createSlice({
       state.Products.filteredProducts = action.payload;
     },
     categoryChanged: (state, action) => {
-      console.log(action.payload);
 
       if (action.payload === "all") {
         state.Products.filteredProducts = state.Products.AllProducts;
       } else {
-        const filterBycategory = state.Products.AllProducts.filter(
-          (product) => product.category === action.payload
-        );
+        const filterBycategory = state.Products.filteredProducts.filter((product) => product.category === action.payload);
         state.Products.filteredProducts = filterBycategory;
       }
     },
     companyChanged: (state, action) => {
-      let filterCopy = state.Products.AllProducts.filter(
-        (product) => product.company === action.payload
-      );
+      let filterCopy = state.Products.filteredProducts.filter((product) => product.company === action.payload);
       state.Products.filteredProducts = filterCopy;
     },
     priceChanged:(state,action)=>{
 
         if(action.payload===">10000"){
-            let filterCopy=state.Products.AllProducts.filter(product=>product.newPrice>10000)
+            let filterCopy=state.Products.filteredProducts.filter(product=>product.newPrice>10000)
             state.Products.filteredProducts=filterCopy
 
         }
         else if(action.payload==="<10000"){
-            let filterCopy=state.Products.AllProducts.filter(product=>product.newPrice<10000)
+            let filterCopy=state.Products.filteredProducts.filter(product=>product.newPrice<10000)
             state.Products.filteredProducts=filterCopy
 
         }
         else if(action.payload==="<5000"){
-            let filterCopy=state.Products.AllProducts.filter(product=>product.newPrice<5000)
+            let filterCopy=state.Products.filteredProducts.filter(product=>product.newPrice<5000)
             state.Products.filteredProducts=filterCopy
 
         }
-        
         else if(action.payload===">5000"){
-            let filterCopy=state.Products.AllProducts.filter(product=>product.newPrice>5000)
+            let filterCopy=state.Products.filteredProducts.filter(product=>product.newPrice>5000)
             state.Products.filteredProducts=filterCopy
         }
         else{
-            state.PAllProductsProducts=state.Products.AllProducts
-
-
+            state.Products.AllProductsProducts=state.Products.AllProducts
         }
 
     },

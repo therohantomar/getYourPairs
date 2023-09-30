@@ -1,16 +1,30 @@
-import { loadStripe } from "@stripe/stripe-js"
+import { loadStripe } from "@stripe/stripe-js";
 
-export function useStripe(info){
-    let sripe= loadStripe(process.env.REACT_APP_STRIPEKEY)
-    const extractedArray=[]
-    info.forEach(element=>{
-        let extractedObject={
-            quantity:element.quantity,
-            price:element.priceId
-        }
+let stripePromise = loadStripe(process.env.REACT_APP_PUBLISHABLE_KEY);
 
-        extractedArray.push(extractedObject)
-    })
-    
+export function useStripe(info) {
+  const lineItems = [];
+  info.forEach((element) => {
+    let extractedObject = {
+      quantity: element.quantity,
+      price: element.priceId,
+    };
+
+    lineItems.push(extractedObject);
+  });
+
+  async function handlePayment() {
+    const stripe = await stripePromise;
+    const { error } = await stripe.redirectToCheckout({
+      lineItems,
+      mode: "payment",
+      successUrl: `${window.location.origin}/success`,
+      cancelUrl: `${window.location.origin}/cancel`,
+    });
+
+    if (error) {
+      console.log("Payment Failed", error);
+    }
+  }
+  return handlePayment;
 }
-

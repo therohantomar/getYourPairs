@@ -5,7 +5,7 @@ import { useStripe } from "../utility/hooks/useStripe";
 
 const Cart = () => {
   const Products = useSelector((store) => store.cart.Products);
-  useStripe(Products)
+  const handlePayment=useStripe(Products)
   return (
     <div>
       <span className="p-2 shadow flex flex-row gap-4">
@@ -16,7 +16,7 @@ const Cart = () => {
           {Products.reduce((acc, currentValue) => acc+ currentValue.newPrice * currentValue.quantity, 0)}/-
         </h1>
         </span>
-        <button className="btn btn-error text-white">Checkout</button>
+        <button onClick={()=>handlePayment()} className="btn btn-error text-white">Checkout</button>
       </span>
       <span className="bg-gray-500">
         {Products.map(product=>{
