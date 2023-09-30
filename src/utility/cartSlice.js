@@ -17,9 +17,22 @@ const cartSlice=createSlice({
                 state.Products=filteredProducts
 
             }
+        },
+        removeFromcart:(state,action)=>{
+            console.log(action.payload.id)
+            let filterCopy=state.Products.filter(product=>product.id!==action.payload.id)
+             state.Products=filterCopy
+        },
+        increment:(state,action)=>{
+            const index=state.Products.findIndex(product=>product.id===action.payload)
+            state.Products[index].quantity+=1
+        },
+        decrement:(state,action)=>{
+            const index=state.Products.findIndex(product=>product.id===action.payload)
+            state.Products[index].quantity=state.Products[index].quantity<=1?1:state.Products[index].quantity-1
         }
     }
 })
 
-export const {addToCart}=cartSlice.actions
+export const {addToCart, removeFromcart, increment, decrement}=cartSlice.actions
 export default cartSlice.reducer

@@ -6,6 +6,7 @@ import Cart from "./components/Cart";
 import store from "./utility/store";
 import { Provider } from "react-redux";
 
+
 const BrowserRouter = createBrowserRouter([
   {
     path: "/",
@@ -22,7 +23,7 @@ const BrowserRouter = createBrowserRouter([
       {
         path: "cart",
         element: <Cart />,
-      },
+      }
     ],
   },
 ]);
