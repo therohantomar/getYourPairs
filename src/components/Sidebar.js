@@ -43,7 +43,7 @@ const Sidebar = () => {
         </Link>
         <Link to="contact?name=contact">
           <span
-          onclick={()=>dispatch(toggleSidebar())}
+          onClick={()=>dispatch(toggleSidebar())}
             className={`flex  items-center  text-2xl p-2 ${
               name === "contact"
                 ? "bg-red-500 text-white"
@@ -56,7 +56,7 @@ const Sidebar = () => {
         </Link>
         <Link to="signin?name=signin">
           <span
-          onclick={()=>dispatch(toggleSidebar())}
+          onClick={()=>dispatch(toggleSidebar())}
             className={`flex  items-center  text-2xl ${
               name === "signin"
                 ? "bg-red-500 text-white"
@@ -69,7 +69,7 @@ const Sidebar = () => {
         </Link>
         <Link to="cart?name=cart">
           <span
-          onclick={()=>dispatch(toggleSidebar())}
+               onClick={()=>dispatch(toggleSidebar())}
             className={`flex  items-center  ${
               name === "cart"
                 ? "bg-red-500 text-white"
@@ -77,7 +77,7 @@ const Sidebar = () => {
             } text-2xl p-2 hover:bg-red-500 hover:text-white cursor-pointer`}
           >
             <IoMdCart className="mx-4" />
-            <h1 className="  cursor-pointer text-2xl">cart</h1>
+            <h1 className="cursor-pointer text-2xl">cart</h1>
           </span>
         </Link>
       </span>
