@@ -35,7 +35,7 @@ const Navbar = () => {
           </Link>
           <Link to="signin?name=signin">
             <li className="mx-4 avatar  text-xl text-red-500">
-            {isAuthenticated?<img src={user?.picture} className="rounded-full avatar" alt={user?.email} /> :<BiSolidUser />}
+            {isAuthenticated?<img src={user?.picture} className="rounded-full w-10 h-10" alt={user?.email} /> :<BiSolidUser />}
             </li>
           </Link>
           <Link to="cart?name=cart">
