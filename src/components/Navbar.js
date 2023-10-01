@@ -6,10 +6,12 @@ import { useDispatch } from "react-redux";
 import { toggleSidebar } from "../utility/sidebarSlice";
 import {useSearchParams} from "react-router-dom"
 import logo from "../logo.png"
+import { useAuth0 } from "@auth0/auth0-react";
 
 
 const Navbar = () => {
   const dispatch=useDispatch()
+  const  {user,isAuthenticated}=useAuth0()
  
   const [searchParams,setSearchParams]=useSearchParams()
   const name=searchParams.get("name")
@@ -33,11 +35,11 @@ const Navbar = () => {
           </Link>
           <Link to="signin?name=signin">
             <li className="mx-4 avatar  text-xl text-red-500">
-              <BiSolidUser />
+            {isAuthenticated?<img src={user?.picture} className="rounded-full avatar" alt={user?.email} /> :<BiSolidUser />}
             </li>
           </Link>
           <Link to="cart?name=cart">
-            <li className=" max-4 text-red-500 text-xl ">
+            <li className=" mx-4 text-red-500 text-xl ">
               <BiSolidCart />
             </li>
           </Link>
