@@ -14,17 +14,24 @@ export function useStripe(info) {
   });
 
   async function handlePayment() {
-    const stripe = await stripePromise;
-    const { error } = await stripe.redirectToCheckout({
-      lineItems,
-      mode: "payment",
-      successUrl: `${window.location.origin}/success`,
-      cancelUrl: `${window.location.origin}/cancel`,
-    });
+    try{
+      const stripe = await stripePromise;
+      const { error } = await stripe.redirectToCheckout({
+        lineItems,
+        mode: "payment",
+        successUrl: `${window.location.origin}/success`,
+        cancelUrl: `${window.location.origin}/cancel`,
+      });
+  
+      if (error) {
+        console.log("Payment Failed", error);
+      }
 
-    if (error) {
-      console.log("Payment Failed", error);
     }
+    catch{
+      console.error("some error in loading stripe!")
+    }
+
   }
   return handlePayment;
 }

@@ -9,6 +9,7 @@ import Success from "./components/Success";
 import Cancel from "./components/Cancel";
 import Contact from "./components/Contact";
 import Error from "./components/Error";
+import Signin from "./components/Signin";
 
 const BrowserRouter = createBrowserRouter([
   {
@@ -29,7 +30,7 @@ const BrowserRouter = createBrowserRouter([
       {
         path: "cart",
         element: <Cart />,
-      },{
+      },{path:"signin",element:<Signin/>},{
         path:"success",
         element:<Success/>
       },{
