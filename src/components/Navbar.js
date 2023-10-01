@@ -34,7 +34,7 @@ const Navbar = () => {
             <li className={`mx-4 avatar  text-xl ${name==="contact"?"text-gray-500":"text-red-500"} `}>Contact</li>
           </Link>
           <Link to="signin?name=signin">
-          {isAuthenticated?<li>x<img src={user?.picture} className="rounded-full" alt={user?.email} /></li> :<li className="mx-4 avatar  text-xl text-red-500"><BiSolidUser />
+          {isAuthenticated?<li><img src={user?.picture} className="rounded-full" alt={user?.email} /></li> :<li className="mx-4 avatar  text-xl text-red-500"><BiSolidUser />
             </li>}
           </Link>
           <Link to="cart?name=cart">
