@@ -1,6 +1,6 @@
 import React from "react";
 import { useSelector } from "react-redux";
-import CartCard from "./CartCard";
+import CartCard from "./CartCard.js";
 import { useStripe } from "../utility/hooks/useStripe";
 
 const Cart = () => {
