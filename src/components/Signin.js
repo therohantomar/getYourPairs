@@ -6,7 +6,7 @@ const Signin = () => {
     if(isAuthenticated){
         return (
             <div className='flex items-center w-full gap-4 min-h-screen'>
-            <img src={user?.picture} alt={user?.name} className='rounded-xl' />
+            <img src={user?.picture} alt={user?.name} className='rounded-full' />
              <button  className={`btn btn-secondary`} onClick={()=>logout()}>logout</button>
             </div>
           )
