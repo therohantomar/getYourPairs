@@ -21,7 +21,7 @@ const Home = () => {
 
   return (
     <>
-    {isAuthenticated && <h1>{user.given_name}</h1>}
+    {isAuthenticated && <h1 className="font-ubuntu">{user.given_name}</h1>}
     <div className="flex overflow-y-scroll scrollbar-none justify-around h-[96vh] items-center gap-10 ">
       <Filters />
       <Suspense fallback={()=><h1>loading...</h1>}>
