@@ -14,7 +14,8 @@ const Signin = () => {
         return (
             <div className='flex flex-col items-center justify-center w-full gap-4 min-h-screen'>
             <img src={user?.picture} alt={user?.name} className='rounded-full' />
-           <ul> {Object.keys(user).map((keys,index)=><li key={index} className=' font-ubuntu font-bold text-gray-400'>{keys}:{user[keys]}</li>)}</ul>
+           <h1>name:{user?.name}</h1>
+           <h1>name:{user?.email}</h1>
              <button  className={`btn btn-secondary`} onClick={()=>logout()}>logout</button>
             </div>
           )
