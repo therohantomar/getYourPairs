@@ -9,7 +9,7 @@ const Card = (product) => {
   return (
     <div     
      className="card" key={product.id}>
-    <div className="card  w-[18em]   h-max bg-white shadow-xl cursor-pointer">
+    <div className="card  w-[16em]   h-max bg-white shadow-xl cursor-pointer">
     <figure>
         <img src={product.img}  className="w-full p-4  hover:p-0  transition-all h-40" alt={product.title} />
       </figure>

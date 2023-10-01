@@ -6,7 +6,7 @@ import { useSelector } from "react-redux";
 const Container = () => {
   const isOpen = useSelector((store) => store.sidebar.isOpen);
   return (
-    <div >
+    <div className="bg-white">
       <Navbar />
       {isOpen ? <Sidebar /> : null}
       <Outlet />

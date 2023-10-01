@@ -5,11 +5,11 @@ import Filters from "./Filters";
 import { dataLoad } from "../utility/dataSlice";
 import { useDeferredValue } from "react";
 import { Suspense } from "react";
-import { useAuth0 } from "@auth0/auth0-react";
+
 
 const Home = () => {
   const dispatch = useDispatch();
-  const {user, isAuthenticated}=useAuth0()
+  
   const filteredProducts = useSelector(
     (store) => store.data.Products.filteredProducts
   );
@@ -21,7 +21,6 @@ const Home = () => {
 
   return (
     <>
-    {isAuthenticated && <h1 className="font-ubuntu">Hello {user.given_name}</h1>}
     <div className="flex overflow-y-scroll scrollbar-none justify-around h-[96vh] items-center gap-10 ">
       <Filters />
       <Suspense fallback={()=><h1>loading...</h1>}>
