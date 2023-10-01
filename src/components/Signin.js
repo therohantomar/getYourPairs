@@ -2,7 +2,7 @@ import React from 'react'
 import { useAuth0 } from '@auth0/auth0-react';
 const Signin = () => {
     const { isLoading, isAuthenticated, error, user, loginWithRedirect, logout } =useAuth0();
-
+console.log(user)
     if(isAuthenticated){
         return (
             <div className='flex flex-col items-center justify-center w-full gap-4 min-h-screen'>
