@@ -1,4 +1,3 @@
-import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { GiHamburgerMenu } from "react-icons/gi";
 import { BiSolidUser, BiSolidCart } from "react-icons/bi";
@@ -7,13 +6,11 @@ import { toggleSidebar } from "../utility/sidebarSlice";
 import {useSearchParams} from "react-router-dom"
 import logo from "../logo.png"
 import { useAuth0 } from "@auth0/auth0-react";
-import { triggerSearch } from "../utility/dataSlice";
 
 
 const Navbar = () => {
   const dispatch=useDispatch()
   const  {user,isAuthenticated}=useAuth0()
- const [search,setSearch]=useState("")
   const [searchParams,setSearchParams]=useSearchParams()
   const name=searchParams.get("name")
   
