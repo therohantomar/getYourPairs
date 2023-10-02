@@ -5,7 +5,7 @@ import { categoryChanged, companyChanged, priceChanged } from '../utility/dataSl
 const Filters = () => {
     const dispatch=useDispatch()
   return (
-    <div className='w-40 h-[96vh] font-nunito  shadow-xl bg-white '>
+    <div data-testid="filter" className='w-40 h-[96vh] font-nunito  shadow-xl bg-white '>
     <span className='mx-4'>
         <h1 className='text-lg font-bold my-4'>Category</h1>
         <span className='flex text-md mx-2 items-center font-bold  gap-2'>

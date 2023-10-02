@@ -33,3 +33,15 @@
   display: none;
   width: 0;
 }
+.hidden-spinner::-webkit-inner-spin-button,
+  .hidden-spinner::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+    display: none;
+  }
+
+  .hidden-spinner-moz {
+    -moz-appearance: textfield;
+    appearance: textfield;
+    margin: 0;
+  }

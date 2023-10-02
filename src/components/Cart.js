@@ -7,7 +7,7 @@ const Cart = () => {
   const Products = useSelector((store) => store.cart.Products);
   const handlePayment=useStripe(Products)
   return (
-    <div>
+    <div className="min-h-screen">
       <span className="p-2 shadow flex flex-row gap-4">
       <span className="flex flex-col gap-4">
         <h1 className="font-ubuntu">total items-{Products.length}</h1>
@@ -18,7 +18,7 @@ const Cart = () => {
         </span>
         <button onClick={()=>handlePayment()} className="btn btn-error text-white">Checkout</button>
       </span>
-      <span className="bg-gray-500">
+      <span data-testid="CartCard" className="bg-gray-500">
         {Products.map(product=>{
           return (<CartCard key={product.id} {...product}/>)
         })}

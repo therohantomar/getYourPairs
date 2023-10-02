@@ -23,7 +23,7 @@ const Card = (product) => {
 
         </span>
                 <div className="card-actions justify-end">
-          <button onClick={()=>dispatch(addToCart(product))} className="btn btn-error text-white my-4">Add to cart</button>
+          <button data-testid="add_btn" onClick={()=>dispatch(addToCart(product))} className="btn btn-error text-white my-4">Add to cart</button>
         </div>
       </div>
     </div>

@@ -15,7 +15,7 @@ const Sidebar = () => {
   const dispatch=useDispatch()
   const name = searchParams.get("name");
   return (
-    <div className=" w-40 absolute top-16 bottom-0 left-0   bg-white shadow-xl ">
+    <div data-testid="sidebar" className=" w-40 absolute top-16 bottom-0 left-0   bg-white shadow-xl ">
       <span className="w-full mt-12 text-red-500 flex flex-col gap-4 font-titillium  ">
         <Link to="/">
           <span 

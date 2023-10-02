@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { GiHamburgerMenu } from "react-icons/gi";
 import { BiSolidUser, BiSolidCart } from "react-icons/bi";
@@ -7,23 +7,24 @@ import { toggleSidebar } from "../utility/sidebarSlice";
 import {useSearchParams} from "react-router-dom"
 import logo from "../logo.png"
 import { useAuth0 } from "@auth0/auth0-react";
+import { triggerSearch } from "../utility/dataSlice";
 
 
 const Navbar = () => {
   const dispatch=useDispatch()
   const  {user,isAuthenticated}=useAuth0()
- 
+ const [search,setSearch]=useState("")
   const [searchParams,setSearchParams]=useSearchParams()
   const name=searchParams.get("name")
   
   return (
     <div className="w-full bg-white shadow sticky top-0 left-0 right-0 z-10  flex justify-between navbar items-center ">
       <div className="w-full  mx-4 flex justify-between items-center">
-        <GiHamburgerMenu onClick={()=>dispatch(toggleSidebar())} className="mx-4 text-red-500 cursor-pointer xs:block sm:block md:block lg:hidden xl:hidden 2xl:hidden  text-xl " />
-        <img src={logo} alt="logo"  className="w-16 h-10"/>
+        <GiHamburgerMenu  data-testid="menu" onClick={()=>dispatch(toggleSidebar())} className="mx-4 text-red-500 cursor-pointer xs:block sm:block md:block lg:hidden xl:hidden 2xl:hidden  text-xl " />
+        <img src={logo}  data-testid="logo" alt="logo"  className="w-16 h-10"/>
       </div>
       <span className="flex w-max mx-8 gap-10">
-        <ul className="xs:hidden sm:hidden md:hidden lg:flex xl:flex 2xl:flex  items-center">
+        <ul data-testid="nav_links" className="xs:hidden sm:hidden md:hidden lg:flex xl:flex 2xl:flex  items-center">
           <Link to="/">
             <li className={`mx-4 avatar  text-xl ${!name?"text-gray-500":"text-red-500"} `}>Home</li>
           </Link>
