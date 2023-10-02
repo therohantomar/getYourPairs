@@ -2,8 +2,11 @@ import {useState} from "react";
 import { useSelector } from "react-redux";
 import CartCard from "../components/CartCard";
 import { useStripe } from "../utility/hooks/useStripe";
+import useScrollToTop from "../utility/hooks/useScrollToTop";
 
 const Cart = () => {
+        useScrollToTop()
+
   const Products = useSelector((store) => store.cart.Products);
   const handlePayment=useStripe(Products)
   const [btn_control,setBtn_control]=useState(false)

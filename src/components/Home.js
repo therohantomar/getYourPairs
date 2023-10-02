@@ -5,10 +5,12 @@ import Filters from "./Filters";
 import { dataLoad } from "../utility/dataSlice";
 import { useDeferredValue, useEffect } from "react";
 import { Suspense } from "react";
+import useScrollToTop from "../utility/hooks/useScrollToTop";
 
 
 const Home = () => {
   const dispatch = useDispatch();
+  useScrollToTop()
   
   const filteredProducts = useSelector(
     (store) => store.data.Products.filteredProducts

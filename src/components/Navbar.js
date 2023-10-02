@@ -13,6 +13,8 @@ const Navbar = () => {
   const  {user,isAuthenticated}=useAuth0()
   const [searchParams,setSearchParams]=useSearchParams()
   const name=searchParams.get("name")
+
+
   
   return (
     <div className="w-full bg-white shadow sticky top-0 left-0 right-0 z-10  flex justify-between navbar items-center ">

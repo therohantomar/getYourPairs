@@ -3,8 +3,11 @@ import { useRef } from "react";
 import feedback from "../images/Feedback-bro.png";
 import emailjs from "@emailjs/browser";
 import { Link } from "react-router-dom";
+import useScrollToTop from "../utility/hooks/useScrollToTop";
+
 const Contact = () => {
   const form = useRef();
+  useScrollToTop()
 
   const handleSubmit = (values, { setSubmitting }) => {
     console.log("hi, I'm clicked");
@@ -52,7 +55,7 @@ const Contact = () => {
   };
 
   return (
-    <div className="max-h-screen flex flex-wrap items-center justify-center w-full bg-white">
+    <div className="h-max  border-2 flex flex-wrap items-center justify-center w-full bg-white">
       <Formik
         initialValues={initialValues}
         validate={validate}
@@ -60,7 +63,7 @@ const Contact = () => {
       >
         {({ errors, touched, isSubmitting }) => (
           <Form ref={form} className="flex flex-col shadow-xl px-8 xl:w-1/2 2xl:w-1/2 lg:w-4/6 md:w-5/6 sm:w-11/12 xs:w-full gap-2">
-            <h1 className="font-ubuntu text-2xl font-bold text-gray-500 my-10">
+            <h1 className="font-ubuntu text-2xl font-bold text-gray-500 ">
               Your Valuable Feedback Here
             </h1>
             <label className="text-black">Name:</label>
@@ -112,7 +115,7 @@ const Contact = () => {
       <img
         src={feedback}
         alt="feedback"
-        className="xl:w-1/2 h-max 2xl:w-1/2 lg:w-4/6 md:w-5/6 sm:w-11/12 xs:w-full"
+        className="xl:w-1/2 p-8 2xl:w-1/2 lg:w-4/6 md:w-5/6 sm:w-11/12 xs:w-full"
       />
     </div>
   );
