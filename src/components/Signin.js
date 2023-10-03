@@ -4,8 +4,6 @@ import useScrollToTop from '../utility/hooks/useScrollToTop';
 const Signin = () => {
      useScrollToTop()
 
-
-
     const { isLoading, isAuthenticated, user, loginWithRedirect, logout } =useAuth0();
      if(isLoading){
         return(
@@ -19,8 +17,8 @@ const Signin = () => {
         return (
             <div className='flex flex-col items-center justify-center w-full gap-4 min-h-screen'>
             <img src={user?.picture} alt={user?.name} className='rounded-full' />
-           <h1>name:{user?.name}</h1>
-           <h1>name:{user?.email}</h1>
+            <h1>name:{user?.name}</h1>
+            <h1>name:{user?.email}</h1>
              <button  className={`btn btn-secondary`} onClick={()=>logout()}>logout</button>
             </div>
           )
@@ -30,7 +28,7 @@ const Signin = () => {
     return (
         <div className='flex flex-col items-center justify-center w-full gap-4 min-h-screen'>
         <h1 className='font-martian font-bold text-xl'>login in socials</h1>
-        <button  className={`btn btn-secondary`} onClick={()=>loginWithRedirect()}>login</button>
+        <button  className={`btn btn-error`} onClick={()=>loginWithRedirect()}>login</button>
         </div>
       )
  }

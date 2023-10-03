@@ -7,7 +7,7 @@ import useScrollToTop from "../utility/hooks/useScrollToTop";
 
 const Contact = () => {
   const form = useRef();
-  useScrollToTop()
+        useScrollToTop()
 
   const handleSubmit = (values, { setSubmitting }) => {
     console.log("hi, I'm clicked");
