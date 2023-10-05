@@ -15,8 +15,8 @@ const Navbar = () => {
   const { user, isAuthenticated } = useAuth0();
   const [searchParams, setSearchParams] = useSearchParams();
   const name = searchParams.get("name");
-  const {location} =usegeoaddress()
-  
+  const {address} =usegeoaddress()
+  console.log(address)
 
   return (
     <div className="w-full bg-white shadow sticky top-0 left-0 right-0 z-10  flex justify-between navbar items-center ">
@@ -28,7 +28,7 @@ const Navbar = () => {
         />
         <span>
         <img src={logo} data-testid="logo" alt="logo" className="w-16 h-10" />
-     <h1 className="text-red-500 font-thin">{location?.address?.city}</h1>
+     <h1 className="text-red-500 font-thin">{address?.city}</h1>
      </span>
       </div>
       <span className="flex font-bold w-max mx-8 gap-10">
