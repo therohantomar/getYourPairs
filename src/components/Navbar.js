@@ -7,7 +7,7 @@ import { useSearchParams } from "react-router-dom";
 import logo from "../logo.png";
 import { useAuth0 } from "@auth0/auth0-react";
 import usegeoaddress from "usegeoaddress"
-import { loadStripe } from "@stripe/stripe-js";
+
 
 const Navbar = () => {
   const Products=useSelector(store=>store.cart.Products)
@@ -16,7 +16,7 @@ const Navbar = () => {
   const [searchParams, setSearchParams] = useSearchParams();
   const name = searchParams.get("name");
   const {address} =usegeoaddress()
-  console.log(address)
+
 
   return (
     <div className="w-full bg-white shadow sticky top-0 left-0 right-0 z-10  flex justify-between navbar items-center ">
