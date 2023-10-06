@@ -1,5 +1,5 @@
 import { Field, Form, Formik } from "formik";
-import { useRef } from "react";
+import { useRef, useState } from "react";
 import feedback from "../images/Feedback-bro.png";
 import emailjs from "@emailjs/browser";
 import { Link } from "react-router-dom";
@@ -7,6 +7,7 @@ import useScrollToTop from "../utility/hooks/useScrollToTop";
 
 const Contact = () => {
   const form = useRef();
+  const [status, setStatus]=useState("")
         useScrollToTop()
 
   const handleSubmit = (values, { setSubmitting }) => {
@@ -21,7 +22,8 @@ const Contact = () => {
       )
       .then(
         (result) => {
-          console.log(result.text);
+        
+          setStatus(result.text);
         },
         (error) => {
           console.log(error.text);
@@ -109,14 +111,15 @@ const Contact = () => {
               Submit
               </Link>
             </button>
+            <span className="flex gap-2">{status==="OK"?<><h1 className="font-martian text-black">thanks for Your feedback :)</h1><Link to="/"><button className="underline text-black">Shop Now</button></Link></>:null}</span>
           </Form>
         )}
       </Formik>
-      <img
+      {/* <img
         src={feedback}
         alt="feedback"
-        className="xl:w-1/2 p-8 2xl:w-1/2 lg:w-4/6 md:w-5/6 sm:w-11/12 xs:w-full"
-      />
+        className="xl:w-1/2 h-60 2xl:w-1/2 lg:w-4/6 md:w-5/6 sm:w-11/12 xs:w-full"
+      /> */}
     </div>
   );
 };
